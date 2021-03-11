@@ -35,4 +35,6 @@ html {
 body {
   font-family: "Lab Grotesque", "Helvetica", "Arial", sans-serif;
   font-weight: normal;
+
+  min-width: 320px;
 }

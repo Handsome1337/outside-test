@@ -1,0 +1,48 @@
+.outside-digital-app {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  box-shadow: 0 -0.11px 16.9495px rgba(183, 187, 225, 0.33);
+}
+
+.tax-deduction-button {
+  color: #FFFFFF;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+
+  padding: 11px 24px;
+
+  background-color: transparent;
+  border: 1px solid #FFFFFF;
+  border-radius: 6px;
+  box-shadow: 0 0 24px rgba(234, 0, 41, 0.33);
+
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.tax-deduction-button:hover,
+.tax-deduction-button:focus {
+  background-color: #EA0029;
+  box-shadow: 0 0 24px rgba(234, 0, 41, 0.33);
+  outline: none;
+}
+
+.tax-deduction-button:disabled {
+  background-color: #BEC5CC;
+  border: none;
+  filter: none;
+}
+
+@media (min-width: 768px) {
+  .tax-deduction-button {
+    font-size: 16px;
+    line-height: 24px;
+
+    padding: 15px 32px;
+  }
+}
