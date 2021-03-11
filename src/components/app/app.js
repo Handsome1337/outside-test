@@ -1,9 +1,18 @@
+import { useState } from 'react';
+import Popup from '../popup/popup';
 import './app.css';
 
 function App() {
+  const [isPopupShow, setPopupShow] = useState(false);
+
+  const closePopup = () => setPopupShow(false);
+
+  const popup = isPopupShow ? <Popup onClose={closePopup} /> : null;
+
   return (
     <main className="outside-digital-app">
-      <button className="tax-deduction-button">Налоговый вычет</button>
+      <button className="tax-deduction-button" onClick={() => setPopupShow(true)}>Налоговый вычет</button>
+      {popup}
     </main>
   );
 }

@@ -6,8 +6,8 @@
   src:
     local("Lab Grotesque Medium"),
     local("LabGrotesque-Medium"),
-    url("./fonts/LabGrotesque-Medium.woff2") format("woff2"),
-    url("./fonts/LabGrotesque-Medium.woff") format("woff");
+    url("fonts/LabGrotesque-Medium.woff2") format("woff2"),
+    url("fonts/LabGrotesque-Medium.woff") format("woff");
 }
 
 @font-face {
