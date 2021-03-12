@@ -32,14 +32,13 @@
 .tax-deduction-button:hover,
 .tax-deduction-button:focus {
   background-color: #EA0029;
-  box-shadow: 0 0 24px rgba(234, 0, 41, 0.33);
   outline: none;
 }
 
 .tax-deduction-button:disabled {
   background-color: #BEC5CC;
+  box-shadow: none;
   border: none;
-  filter: none;
 }
 
 @media (min-width: 768px) {
