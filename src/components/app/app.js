@@ -10,7 +10,7 @@ function App() {
   const popup = isPopupShow ? <Popup onClose={closePopup} /> : null;
 
   return (
-    <main className="outside-digital-app">
+    <main className={`outside-digital-app ${isPopupShow ? "outside-digital-app--open" : ""}`}>
       <button className="tax-deduction-button" onClick={() => setPopupShow(true)}>Налоговый вычет</button>
       {popup}
     </main>
