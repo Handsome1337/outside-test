@@ -70,6 +70,84 @@
   word-break: break-word;
 }
 
+.input-data-label {
+  position: relative;
+
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.input-data {
+  font-size: 14px;
+  line-height: 24px;
+
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px 10px;
+
+  border: 1px solid #DFE3E6;
+  border-radius: 3px;
+}
+
+.input-data::placeholder {
+  color: #BEC5CC;
+}
+
+.input-data:hover,
+.input-data:focus {
+  border-color: #000000;
+  outline: none;
+}
+
+.input-data:disabled {
+  color: #808080;
+
+  background-color: transparent;
+  border-color: #808080;
+}
+
+.input-data--error .input-data {
+  border-color: #EA0029;
+}
+
+.input-data--error::after {
+  content: "Поле обязательно для заполнения";
+
+  position: absolute;
+  bottom: -5px;
+
+  color: #EA0029;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.calculate-button {
+  color: #EA0029;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+
+  align-self: flex-start;
+  padding: 0;
+
+  background-color: transparent;
+  border: 0;
+
+  cursor: pointer;
+}
+
+.calculate-button:hover,
+.calculate-button:focus {
+  color: #F53A31;
+  outline: none;
+}
+
+.calculate-button:active {
+  color: #EA0029;
+}
+
 .add-button {
   color: #FFFFFF;
   font-size: 12px;
@@ -87,7 +165,6 @@
   box-shadow: 0 0 24px rgba(234, 0, 41, 0.33);
 
   cursor: pointer;
-  box-sizing: border-box;
 }
 
 .add-button:hover,

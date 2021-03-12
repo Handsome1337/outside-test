@@ -1,6 +1,15 @@
+import { useState } from 'react';
 import './popup.css';
 
 function Popup({onClose}) {
+  const [salary, setSalary] = useState('');
+
+  const onSalaryChange = (evt) => {
+    const value = evt.target.value;
+
+    setSalary(value);
+  };
+
   return (
     <>
       <section className="popup">
@@ -11,6 +20,17 @@ function Popup({onClose}) {
         </button>
         <h2 className="popup-headline">Налоговый вычет</h2>
         <p className="info">Используйте налоговый вычет чтобы погасить ипотеку досрочно. Размер налогового вычета составляет не более 13% от своего официального годового дохода.</p>
+        <label className="input-data-label">
+          Ваша зарплата в месяц
+          <input
+            type="text"
+            className="input-data"
+            value={salary}
+            onChange={onSalaryChange}
+            placeholder="Введите данные"
+          />
+        </label>
+        <button className="calculate-button">Рассчитать</button>
         <button className="add-button">Добавить</button>
       </section>
       <div className="overlay" onClick={onClose} />
