@@ -5,9 +5,13 @@ function Popup({onClose}) {
   const [salary, setSalary] = useState('');
 
   const onSalaryChange = (evt) => {
-    const value = evt.target.value;
+    let value = evt.target.value?.replace(/\D/g, '');
 
-    setSalary(value);
+    if (value && value === salary?.replace(/\D/g, '')) {
+      value = value.slice(0, -1);
+    }
+
+    setSalary(value || '');
   };
 
   return (
@@ -25,7 +29,7 @@ function Popup({onClose}) {
           <input
             type="text"
             className="input-data"
-            value={salary}
+            value={salary ? `${salary} ₽` : salary}
             onChange={onSalaryChange}
             placeholder="Введите данные"
           />
