@@ -35,6 +35,34 @@ function Popup({onClose}) {
           />
         </label>
         <button className="calculate-button">Рассчитать</button>
+        <fieldset className="reduce-choice">
+          <div className="reduce-choice-wrapper">
+            <legend className="reduce-choice-headline">Что уменьшаем?</legend>
+            <ul className="reduce-choice-list">
+              <li>
+                <input
+                  type="radio"
+                  className="visually-hidden reduce-choice-radio"
+                  id="payment"
+                  name="reducer"
+                  value="payment"
+                  defaultChecked
+                />
+                <label htmlFor="payment" className="reduce-choice-label">Платеж</label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  className="visually-hidden reduce-choice-radio"
+                  id="period"
+                  name="reducer"
+                  value="period"
+                />
+                <label htmlFor="period" className="reduce-choice-label">Срок</label>
+              </li>
+            </ul>
+          </div>
+        </fieldset>
         <button className="add-button">Добавить</button>
       </section>
       <div className="overlay" onClick={onClose} />

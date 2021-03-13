@@ -148,6 +148,54 @@
   color: #EA0029;
 }
 
+.reduce-choice {
+  margin: 24px 0 0 0;
+  padding: 0;
+
+  border: none;
+}
+
+.reduce-choice-headline {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+
+  margin: 0 0 24px 0;
+
+  word-break: break-word;
+}
+
+.reduce-choice-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.reduce-choice-label {
+  font-size: 14px;
+  line-height: 24px;
+
+  display: block;
+  margin-right: 8px;
+  padding: 6px 12px;
+
+  background-color: #EEF0F2;
+  border-radius: 50px;
+}
+
+.reduce-choice-label:hover {
+  background-color: #DFE3E6;
+}
+
+.reduce-choice-radio:active ~ .reduce-choice-label,
+.reduce-choice-radio:checked ~ .reduce-choice-label {
+  color: #FFFFFF;
+
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+}
+
 .add-button {
   color: #FFFFFF;
   font-size: 12px;
@@ -201,10 +249,31 @@
     font-size: 14px;
     line-height: 24px;
   }
+
+  .reduce-choice {
+    margin-bottom: 40px;
+  }
+
+  .reduce-choice-wrapper {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .reduce-choice-headline {
+    margin-right: 76px;
+  }
+
+  .reduce-choice-label {
+    margin-right: 16px;
+  }
 }
 
 @media (min-width: 1440px) {
   .popup {
     width: 552px
+  }
+
+  .reduce-choice-headline {
+    margin-right: 32px;
   }
 }
