@@ -70,6 +70,11 @@
   word-break: break-word;
 }
 
+.br-for-tablets,
+.br-for-computers {
+  display: none;
+}
+
 .input-data-label {
   position: relative;
 
@@ -250,6 +255,10 @@
     line-height: 24px;
   }
 
+  .br-for-tablets {
+    display: inline;
+  }
+
   .reduce-choice {
     margin-bottom: 40px;
   }
@@ -266,11 +275,26 @@
   .reduce-choice-label {
     margin-right: 16px;
   }
+
+  .add-button {
+    font-size: 16px;
+    line-height: 24px;
+
+    padding: 16px 24px;
+  }
 }
 
 @media (min-width: 1440px) {
   .popup {
     width: 552px
+  }
+
+  .br-for-computers {
+    display: inline;
+  }
+
+  .br-for-tablets {
+    display: none;
   }
 
   .reduce-choice-headline {

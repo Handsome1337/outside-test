@@ -23,7 +23,7 @@ function Popup({onClose}) {
           </svg>
         </button>
         <h2 className="popup-headline">Налоговый вычет</h2>
-        <p className="info">Используйте налоговый вычет чтобы погасить ипотеку досрочно. Размер налогового вычета составляет не более 13% от своего официального годового дохода.</p>
+        <p className="info">Используйте налоговый вычет чтобы погасить ипотеку досрочно.<br className="br-for-computers" /> Размер налогового вычета составляет<br className="br-for-tablets" /> не более 13% от своего официального годового дохода.</p>
         <label className="input-data-label">
           Ваша зарплата в месяц
           <input
