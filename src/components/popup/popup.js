@@ -5,14 +5,40 @@ function Popup({onClose}) {
   const [salary, setSalary] = useState('');
 
   const onSalaryChange = (evt) => {
-    let value = evt.target.value?.replace(/\D/g, '');
+    let value = evt.target.value;
+    if (value) {
+      const nonDigitsQuantity = value.replace(/ /g, '').match(/\D/g)?.length;
 
-    if (value && value === salary?.replace(/\D/g, '')) {
-      value = value.slice(0, -1);
+      value = value.replace(/\D/g, '');
+      if (value === salary && !nonDigitsQuantity) {
+        value = value.slice(0, -1);
+      }
+
+      if (value !== salary) {
+        setSalary(value);
+      }
+    } else {
+      setSalary('');
+    }
+  };
+
+  const formatSalary = (salary) => {
+    if (!salary) {
+      return salary;
     }
 
-    setSalary(value || '');
-  };
+    const formattedSalary = salary
+      .split('')
+      .reverse()
+      .join('')
+      .replace(/(\d{3})/g, '$1 ')
+      .split('')
+      .reverse()
+      .join('');
+
+    return `${formattedSalary} ₽`.trim();
+  }
+
 
   return (
     <>
@@ -29,7 +55,7 @@ function Popup({onClose}) {
           <input
             type="text"
             className="input-data"
-            value={salary ? `${salary} ₽` : salary}
+            value={formatSalary(salary)}
             onChange={onSalaryChange}
             placeholder="Введите данные"
           />
