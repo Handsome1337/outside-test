@@ -1,0 +1,14 @@
+.table-row {
+  display: block;
+  margin-bottom: 16px;
+
+  border-bottom: 1px solid #DFE3E6;
+}
+
+.table-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.table-item-year {
+  color: #808080;
+}

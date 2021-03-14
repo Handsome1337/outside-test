@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ResultTable from '../result-table/result-table';
 import './popup.css';
 
 function Popup({onClose}) {
@@ -72,6 +73,7 @@ function Popup({onClose}) {
           />
         </label>
         <button className="calculate-button" onClick={onCalculateClick}>Рассчитать</button>
+        <ResultTable />
         <fieldset className="reduce-choice">
           <div className="reduce-choice-wrapper">
             <legend className="reduce-choice-headline">Что уменьшаем?</legend>
