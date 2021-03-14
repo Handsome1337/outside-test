@@ -14,6 +14,11 @@ function Popup({onClose}) {
       const nonDigitsQuantity = value.replace(/ /g, '').match(/\D/g)?.length;
 
       value = value.replace(/\D/g, '');
+      /*
+        Если пользователь нажал Backspace, то в инпуте он удалил символ рубля, хотя хотел
+        удалить последнюю цифру введенной зарплаты. Сумма зарплаты в таком случае в инпуте не изменилась.
+        nonDigitsQuantity будет равно 0, в таком случае мы обрезаем зарплату на один символ с конца.
+      */
       if (value === salary && !nonDigitsQuantity) {
         value = value.slice(0, -1);
       }
@@ -38,7 +43,9 @@ function Popup({onClose}) {
 
     const MAX_DEDUCTION = 260000;
     const annualDeduction = Math.round(salary * 12 * 0.13);
+    // Рассчитываем, за сколько лет пользователь может получить максимальный вычет
     const years = Math.ceil(MAX_DEDUCTION / annualDeduction);
+    // Рассчитываем сумму вычета за каждый год
     const payments = Array.from({length: years}, (_item, index) => {
       if (index === years - 1) {
         const deduction = MAX_DEDUCTION - annualDeduction * index;
@@ -63,6 +70,12 @@ function Popup({onClose}) {
       return;
     }
 
+    /*
+      Маппер данных формы. Поля с годами вычетов содержат в своем имени цифры,
+      поэтому для таких полей мы берем сумму вычета из состояния earlyPayments.
+      Далее создаем объект, в котором описываем значения полей формы, и в конце
+      удаляем пробелы и символ рубля из зарплаты. Затем отправляем этот объект на бэк.
+    */
     const formData = [...new FormData(evt.target)]
       .map((item) => {
         const isYear = item[0].match(/\d+/);
