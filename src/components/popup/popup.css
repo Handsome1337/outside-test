@@ -21,6 +21,12 @@
   flex-direction: column;
 
   background-color: #FFFFFF;
+
+  overflow-y: scroll;
+}
+
+.popup::-webkit-scrollbar {
+  width: 0;
 }
 
 .popup-close {
@@ -235,6 +241,7 @@
   .popup {
     width: 453px;
     height: auto;
+    max-height: 100vh;
     padding: 32px;
 
     border-radius: 30px;
