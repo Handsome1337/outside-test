@@ -5,6 +5,8 @@ import './popup.css';
 function Popup({onClose}) {
   const [salary, setSalary] = useState('');
   const [error, setError] = useState(false);
+  const [isResultTableShow, setIsResultTableShow] = useState(false);
+  const [earlyPayments, setEarlyPayments] = useState([]);
 
   const onSalaryChange = (evt) => {
     let value = evt.target.value;
@@ -32,6 +34,20 @@ function Popup({onClose}) {
     if (!salary) {
       setError(true);
     }
+
+    const MAX_DEDUCTION = 260000;
+    const annualDeduction = Math.round(salary * 12 * 0.13);
+    const years = Math.ceil(MAX_DEDUCTION / annualDeduction);
+    const payments = Array.from({length: years}, (_item, index) => {
+      if (index === years - 1) {
+        const deduction = MAX_DEDUCTION - annualDeduction * index;
+        return deduction;
+      }
+      return annualDeduction;
+    });
+
+    setEarlyPayments(payments);
+    setIsResultTableShow(true);
   };
 
   const formatSalary = (salary) => {
@@ -51,6 +67,7 @@ function Popup({onClose}) {
     return `${formattedSalary} ₽`.trim();
   }
 
+  const resultTable = isResultTableShow ? <ResultTable earlyPayments={earlyPayments} /> : null;
 
   return (
     <>
@@ -73,7 +90,7 @@ function Popup({onClose}) {
           />
         </label>
         <button className="calculate-button" onClick={onCalculateClick}>Рассчитать</button>
-        <ResultTable />
+        {resultTable}
         <fieldset className="reduce-choice">
           <div className="reduce-choice-wrapper">
             <legend className="reduce-choice-headline">Что уменьшаем?</legend>
