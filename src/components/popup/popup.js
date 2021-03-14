@@ -3,6 +3,7 @@ import './popup.css';
 
 function Popup({onClose}) {
   const [salary, setSalary] = useState('');
+  const [error, setError] = useState(false);
 
   const onSalaryChange = (evt) => {
     let value = evt.target.value;
@@ -17,8 +18,18 @@ function Popup({onClose}) {
       if (value !== salary) {
         setSalary(value);
       }
+
+      if (error) {
+        setError(false);
+      }
     } else {
       setSalary('');
+    }
+  };
+
+  const onCalculateClick = () => {
+    if (!salary) {
+      setError(true);
     }
   };
 
@@ -50,17 +61,17 @@ function Popup({onClose}) {
         </button>
         <h2 className="popup-headline">Налоговый вычет</h2>
         <p className="info">Используйте налоговый вычет чтобы погасить ипотеку досрочно.<br className="br-for-computers" /> Размер налогового вычета составляет<br className="br-for-tablets" /> не более 13% от своего официального годового дохода.</p>
-        <label className="input-data-label">
+        <label className={`input-data-label ${error ? "input-data--error" : ""}`}>
           Ваша зарплата в месяц
           <input
             type="text"
             className="input-data"
             value={formatSalary(salary)}
             onChange={onSalaryChange}
-            placeholder="Введите данные"
+            placeholder={`${error ? "" : "Введите данные"}`}
           />
         </label>
-        <button className="calculate-button">Рассчитать</button>
+        <button className="calculate-button" onClick={onCalculateClick}>Рассчитать</button>
         <fieldset className="reduce-choice">
           <div className="reduce-choice-wrapper">
             <legend className="reduce-choice-headline">Что уменьшаем?</legend>
