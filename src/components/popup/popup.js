@@ -33,6 +33,7 @@ function Popup({onClose}) {
   const onCalculateClick = () => {
     if (!salary) {
       setError(true);
+      return;
     }
 
     const MAX_DEDUCTION = 260000;
