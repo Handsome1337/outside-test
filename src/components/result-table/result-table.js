@@ -4,7 +4,7 @@ import TableRow from "../table-row/table-row";
 function ResultTable() {
   const renderTableRows = (data) => {
     return data.map((item, index) => (
-      <TableRow sum={item} year={index + 1} key={index * Math.random()} />
+      <TableRow sum={item} year={(index + 1).toString()} key={index * Math.random()} />
     ))
   };
 

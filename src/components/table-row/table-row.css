@@ -1,8 +1,50 @@
 .table-row {
-  display: block;
+  display: flex;
+  align-items: center;
   margin-bottom: 16px;
+  padding-bottom: 16px;
 
   border-bottom: 1px solid #DFE3E6;
+}
+
+.table-row-checkbox-label {
+  position: relative;
+
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 11px;
+
+  border: 1px solid #DFE3E6;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.table-row-checkbox:focus ~ label,
+.table-row-checkbox-label:hover {
+  border-color: #000000;
+}
+
+.table-row-checkbox:checked ~ label {
+  background: linear-gradient(255.35deg, #DC3131 0.83%, rgba(255, 79, 79, 0) 108.93%), #FF5E56;
+  border: 0;
+}
+
+.table-row-checkbox:checked ~ label::after {
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  background: transparent url("/src/img/checkbox-icon.svg") center center no-repeat;
+}
+
+.table-row-checkbox:disabled ~ label {
+  background: #BEC5CC;
+  border-color: #BEC5CC;
 }
 
 .table-row:last-of-type {
@@ -11,4 +53,10 @@
 
 .table-item-year {
   color: #808080;
+}
+
+@media (min-width: 768px) {
+  .table-row:last-of-type {
+    margin-bottom: -4px;
+  }
 }

@@ -12,3 +12,9 @@
   width: 150px;
   margin: 16px 0;
 }
+
+@media (min-width: 768px) {
+  .result-table-caption {
+    width: auto;
+  }
+}
