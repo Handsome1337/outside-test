@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ResultTable from '../result-table/result-table';
 import './popup.css';
 
@@ -101,6 +101,10 @@ function Popup({onClose}) {
     onClose();
   };
 
+  /*
+    Форматирует зарплату в инпуте. Если инпут пустой - ничего не меняет,
+    Если зарплата введена - добавляет пробел каждые 3 символа с конца, добавляет символ рубля
+  */
   const formatSalary = (salary) => {
     if (!salary) {
       return salary;

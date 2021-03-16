@@ -1,3 +1,4 @@
+import React from 'react';
 import './table-row.css';
 
 function TableRow({sum, year}) {

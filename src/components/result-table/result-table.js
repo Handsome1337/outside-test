@@ -1,3 +1,4 @@
+import React from 'react';
 import './result-table.css';
 import TableRow from "../table-row/table-row";
 
