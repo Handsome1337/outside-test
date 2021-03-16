@@ -1,5 +1,6 @@
 import React from 'react';
 import './table-row.css';
+import { formatSum } from '../../utils/formatSalary';
 
 function TableRow({sum, year}) {
   // Форматирует окончание года
@@ -33,7 +34,7 @@ function TableRow({sum, year}) {
         <label htmlFor={`${year}year`} className="table-row-checkbox-label" />
       </td>
       <td>
-        {sum} <span className="table-item-year">в {year}-{formatYear(year)} год</span>
+        {formatSum(sum)} рублей <span className="table-item-year">в {year}-{formatYear(year)} год</span>
       </td>
     </tr>
   );

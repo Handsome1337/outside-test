@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ResultTable from '../result-table/result-table';
+import { formatSum } from '../../utils/formatSalary';
 import './popup.css';
 
 function Popup({onClose}) {
@@ -102,24 +103,15 @@ function Popup({onClose}) {
   };
 
   /*
-    Форматирует зарплату в инпуте. Если инпут пустой - ничего не меняет,
-    Если зарплата введена - добавляет пробел каждые 3 символа с конца, добавляет символ рубля
+    Форматирует инпут. Если инпут пустой - ничего не меняет,
+    Если зарплата введена - добавляет пробел каждые 3 символа с конца и символ рубля
   */
-  const formatSalary = (salary) => {
+  const formatInput = (salary) => {
     if (!salary) {
       return salary;
     }
 
-    const formattedSalary = salary
-      .split('')
-      .reverse()
-      .join('')
-      .replace(/(\d{3})/g, '$1 ')
-      .split('')
-      .reverse()
-      .join('');
-
-    return `${formattedSalary} ₽`.trim();
+    return `${formatSum(salary)} ₽`;
   }
 
   const resultTable = isResultTableShow ? <ResultTable earlyPayments={earlyPayments} /> : null;
@@ -141,7 +133,7 @@ function Popup({onClose}) {
               type="text"
               className="input-data"
               name="salary"
-              value={formatSalary(salary)}
+              value={formatInput(salary)}
               onChange={onSalaryChange}
               placeholder={`${error ? "" : "Введите данные"}`}
             />
